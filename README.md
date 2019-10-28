@@ -9,7 +9,7 @@ A PHP Iterator class that you can wrap around a generator to cache it's generate
 Require this package with composer using the following command:
 
 ```bash
-composer require lunkkun/php-cached-generator
+composer require lunkkun/cached-generator
 ```
 
 ## Usage
