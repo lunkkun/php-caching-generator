@@ -1,5 +1,5 @@
 {
-    "name": "lunkkun/php-cached-generator",
+    "name": "lunkkun/cached-generator",
     "description": "A PHP Generator class that caches it's generated values.",
     "keywords": [
         "php",
