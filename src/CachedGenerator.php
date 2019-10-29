@@ -3,11 +3,11 @@
 namespace Lunkkun\CachedGenerator;
 
 use Generator;
-use Iterator;
+use OuterIterator;
 
-class CachedGenerator implements Iterator
+class CachedGenerator implements OuterIterator
 {
-    /** @var Iterator */
+    /** @var Generator */
     protected $generator;
     /** @var array */
     protected $cache = [];
@@ -52,5 +52,10 @@ class CachedGenerator implements Iterator
         if ($this->generator->valid()) {
             $this->cache[] = $this->generator->current();
         }
+    }
+
+    public function getInnerIterator(): Generator
+    {
+        return $this->generator;
     }
 }
