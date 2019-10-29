@@ -3,6 +3,9 @@
 ## Introduction
 
 A PHP Iterator class that you can wrap around a generator to cache it's generated values.
+When iterating over this class for a second time, values will be pulled from the cache.
+
+If stopped halfway through generating, when iterating for a second time, it will continue generating (and caching) values after exhausting the cache.
 
 ## Installation
 
