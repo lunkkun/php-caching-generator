@@ -52,6 +52,11 @@ class CachedGenerator implements OuterIterator
         return $this->generator;
     }
 
+    public function getCache(): array
+    {
+        return $this->cache;
+    }
+
     private function addCurrentToCache(): void
     {
         if ($this->generator->valid()) {
