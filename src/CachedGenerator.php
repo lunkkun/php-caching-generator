@@ -8,9 +8,9 @@ use OuterIterator;
 class CachedGenerator implements OuterIterator
 {
     /** @var Generator */
-    protected $generator;
+    private $generator;
     /** @var array */
-    protected $cache = [];
+    private $cache = [];
 
     public function __construct(Generator $generator)
     {
@@ -47,15 +47,15 @@ class CachedGenerator implements OuterIterator
         reset($this->cache);
     }
 
-    protected function addCurrentToCache(): void
+    public function getInnerIterator(): Generator
+    {
+        return $this->generator;
+    }
+
+    private function addCurrentToCache(): void
     {
         if ($this->generator->valid()) {
             $this->cache[] = $this->generator->current();
         }
-    }
-
-    public function getInnerIterator(): Generator
-    {
-        return $this->generator;
     }
 }
