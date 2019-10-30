@@ -46,6 +46,25 @@ class CachingGeneratorTest extends TestCase
         $this->assertEquals(range(0, 2), $results);
     }
 
+    public function testPicksUpWhereItLeftOff()
+    {
+        $generator = function () {
+            foreach (range(0, 2) as $value) {
+                yield $value;
+            }
+        };
+        $cachingGenerator = new CachingGenerator($generator());
+
+        foreach ($cachingGenerator as $value) {
+            if ($value === 1) {
+                break;
+            }
+        }
+
+        $results = iterator_to_array($cachingGenerator);
+        $this->assertEquals(range(0, 2), $results);
+    }
+
     public function testExposesInnerGenerator()
     {
         $generator = function () {
