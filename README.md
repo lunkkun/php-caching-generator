@@ -1,4 +1,4 @@
-# Cached Generator for PHP
+# Caching Generator for PHP
 
 ## Introduction
 
@@ -12,7 +12,7 @@ If stopped halfway through generating, when iterating for a second time, it will
 Require this package with composer using the following command:
 
 ```bash
-composer require lunkkun/cached-generator
+composer require lunkkun/caching-generator
 ```
 
 ## Usage
@@ -20,20 +20,20 @@ composer require lunkkun/cached-generator
 ```php
 <?php
 
-use Lunkkun\CachedGenerator\CachedGenerator;
+use Lunkkun\CachingGenerator\CachingGenerator;
 
 $generator = function () {
     foreach (range(0, 2) as $value) {
         yield $value;
     }
 };
-$cachedGenerator = new CachedGenerator($generator());
+$cachingGenerator = new CachingGenerator($generator());
 
-foreach ($cachedGenerator as $value) {
+foreach ($cachingGenerator as $value) {
     echo $value;
 }
 
-foreach ($cachedGenerator as $value) {
+foreach ($cachingGenerator as $value) {
     echo $value;
 }
 ```
@@ -46,4 +46,4 @@ Outputs:
 
 ## License
 
-PHP Cached Generator is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+PHP Caching Generator is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

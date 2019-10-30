@@ -1,13 +1,13 @@
 {
-    "name": "lunkkun/cached-generator",
-    "description": "A PHP Generator class that caches its generated values.",
+    "name": "lunkkun/caching-generator",
+    "description": "A rewindable PHP Generator class that caches its generated values.",
     "keywords": [
         "php",
         "generator",
         "cache",
         "iterator"
     ],
-    "homepage": "https://github.com/lunkkun/php-cached-generator",
+    "homepage": "https://github.com/lunkkun/php-caching-generator",
     "license": "MIT",
     "authors": [
         {
@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Lunkkun\\CachedGenerator\\": "src"
+            "Lunkkun\\CachingGenerator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Lunkkun\\CachedGenerator\\Tests\\": "tests"
+            "Lunkkun\\CachingGenerator\\Tests\\": "tests"
         }
     },
     "scripts": {

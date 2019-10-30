@@ -1,11 +1,11 @@
 <?php
 
-namespace Lunkkun\CachedGenerator;
+namespace Lunkkun\CachingGenerator;
 
 use Generator;
 use OuterIterator;
 
-class CachedGenerator implements OuterIterator
+class CachingGenerator implements OuterIterator
 {
     /** @var Generator */
     private $generator;

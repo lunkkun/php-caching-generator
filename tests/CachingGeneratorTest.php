@@ -1,11 +1,11 @@
 <?php
 
-namespace Lunkkun\CachedGenerator\Tests;
+namespace Lunkkun\CachingGenerator\Tests;
 
-use Lunkkun\CachedGenerator\CachedGenerator;
+use Lunkkun\CachingGenerator\CachingGenerator;
 use PHPUnit\Framework\TestCase;
 
-class CachedGeneratorTest extends TestCase
+class CachingGeneratorTest extends TestCase
 {
     public function testGenerates()
     {
@@ -14,9 +14,9 @@ class CachedGeneratorTest extends TestCase
                 yield $value;
             }
         };
-        $cachedGenerator = new CachedGenerator($generator());
+        $cachingGenerator = new CachingGenerator($generator());
 
-        $results = iterator_to_array($cachedGenerator);
+        $results = iterator_to_array($cachingGenerator);
         $this->assertEquals(range(0, 2), $results);
     }
 
@@ -25,9 +25,9 @@ class CachedGeneratorTest extends TestCase
         $generator = function () {
             if (false) yield 0;
         };
-        $cachedGenerator = new CachedGenerator($generator());
+        $cachingGenerator = new CachingGenerator($generator());
 
-        $results = iterator_to_array($cachedGenerator);
+        $results = iterator_to_array($cachingGenerator);
         $this->assertEquals([], $results);
     }
 
@@ -38,11 +38,11 @@ class CachedGeneratorTest extends TestCase
                 yield $value;
             }
         };
-        $cachedGenerator = new CachedGenerator($generator());
+        $cachingGenerator = new CachingGenerator($generator());
 
-        iterator_to_array($cachedGenerator);
+        iterator_to_array($cachingGenerator);
 
-        $results = iterator_to_array($cachedGenerator);
+        $results = iterator_to_array($cachingGenerator);
         $this->assertEquals(range(0, 2), $results);
     }
 
@@ -55,9 +55,9 @@ class CachedGeneratorTest extends TestCase
         };
 
         $generatorInstance = $generator();
-        $cachedGenerator = new CachedGenerator($generatorInstance);
+        $cachingGenerator = new CachingGenerator($generatorInstance);
 
-        $this->assertEquals($generatorInstance, $cachedGenerator->getInnerIterator());
+        $this->assertEquals($generatorInstance, $cachingGenerator->getInnerIterator());
     }
 
     public function testExposesCache()
@@ -67,10 +67,10 @@ class CachedGeneratorTest extends TestCase
                 yield $value;
             }
         };
-        $cachedGenerator = new CachedGenerator($generator());
+        $cachingGenerator = new CachingGenerator($generator());
 
-        $results = iterator_to_array($cachedGenerator);
+        $results = iterator_to_array($cachingGenerator);
 
-        $this->assertEquals($results, $cachedGenerator->getCache());
+        $this->assertEquals($results, $cachingGenerator->getCache());
     }
 }

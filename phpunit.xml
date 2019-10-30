@@ -11,7 +11,7 @@
          stopOnFailure="false"
          verbose="false">
     <testsuites>
-        <testsuite name="Cached Generator Test Suite">
+        <testsuite name="Caching Generator Test Suite">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
