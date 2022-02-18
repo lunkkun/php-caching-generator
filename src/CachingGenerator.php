@@ -4,6 +4,7 @@ namespace Lunkkun\CachingGenerator;
 
 use Generator;
 use OuterIterator;
+use ReturnTypeWillChange;
 
 class CachingGenerator implements OuterIterator
 {
@@ -18,6 +19,7 @@ class CachingGenerator implements OuterIterator
         $this->addCurrentToCache();
     }
 
+    #[ReturnTypeWillChange]
     public function current()
     {
         return current($this->cache);
